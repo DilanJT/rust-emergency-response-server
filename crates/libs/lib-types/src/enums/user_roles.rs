@@ -37,6 +37,15 @@ mod tests {
     use super::*;
 
     #[test]
+    fn test_patient_access() {
+        assert!(UserRole::ErDirector.can_access_patients());
+        assert!(UserRole::Paramedic.can_access_patients());
+        assert!(UserRole::Nurse.can_access_patients());
+        assert!(UserRole::Specialist.can_access_patients());
+        assert!(!UserRole::Admin.can_access_patients()); // Admin is system-only
+    }
+
+    #[test]
     fn test_serialization() {
         let role = UserRole::ErDirector;
         println!("UserRole: {:?}", role);
