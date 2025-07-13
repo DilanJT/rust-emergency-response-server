@@ -1,0 +1,54 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/libs/lib-auth",
+    "crates/libs/lib-core", 
+    "crates/libs/lib-utils",
+    "crates/libs/lib-types",
+    "crates/services/web-server",
+    "crates/services/migration",
+    "crates/services/seed-data",
+]
+
+[workspace.dependencies]
+# Web Framework
+axum = "0.7"
+tower = "0.4"
+tower-http = { version = "0.5", features = ["cors", "fs", "trace"] }
+tokio = { version = "1.0", features = ["full"] }
+
+# Database
+sqlx = { version = "0.7", features = ["postgres", "runtime-tokio-rustls", "chrono", "uuid", "json"] }
+sea-query = "0.32"
+sea-query-postgres = "0.5"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Types
+uuid = { version = "1.0", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# Authentication
+jsonwebtoken = "9.0"
+bcrypt = "0.15"
+
+# Error Handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Configuration
+config = "0.14"
+dotenvy = "0.15"
+
+# Async
+futures = "0.3"
+async-trait = "0.1"
+
+# Development
+derive_more = "0.99"

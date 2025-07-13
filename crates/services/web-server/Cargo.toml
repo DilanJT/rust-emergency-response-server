@@ -1,0 +1,33 @@
+[package]
+name = "web-server"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "web-server"
+path = "src/main.rs"
+
+[dependencies]
+lib-types = { path = "../../libs/lib-types" }
+lib-auth = { path = "../../libs/lib-auth" }
+lib-core = { path = "../../libs/lib-core" }
+lib-utils = { path = "../../libs/lib-utils" }
+
+axum = { workspace = true }
+tower = { workspace = true }
+tower-http = { workspace = true }
+tokio = { workspace = true }
+sqlx = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+uuid = { workspace = true }
+chrono = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+config = { workspace = true }
+dotenvy = { workspace = true }
+
+[dev-dependencies]
+tokio-test = "0.4"

@@ -1,0 +1,14 @@
+[package]
+name = "migration"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+lib-types = { path = "../../libs/lib-types" }
+lib-core = { path = "../../libs/lib-core" }
+
+sqlx = { workspace = true }
+tokio = { workspace = true }
+anyhow = { workspace = true }
+uuid = { workspace = true }
+chrono = { workspace = true }
