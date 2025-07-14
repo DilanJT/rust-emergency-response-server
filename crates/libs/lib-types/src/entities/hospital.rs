@@ -108,6 +108,16 @@ impl Hospital {
         self.updated_at = Utc::now();
     }
 
+    pub fn capacity_color(&self) -> &'static str {
+        if self.is_at_capacity() {
+            "red"
+        } else if self.is_nearly_full() {
+            "yellow"
+        } else {
+            "green"
+        }
+    }
+
 }
 
 #[cfg(test)]
